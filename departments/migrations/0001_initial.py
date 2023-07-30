@@ -8,24 +8,19 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('non_reimbursement_subjects', '0001_initial'),
-        ('departments', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Doctor',
+            name='Department',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=140)),
-                ('hospital_name', models.CharField(max_length=140)),
-                ('departments', models.ManyToManyField(related_name='doctors', to='departments.department')),
-                ('non_reimbursement_subjects', models.ManyToManyField(blank=True, related_name='doctors', to='non_reimbursement_subjects.nonreimbursementdepartment')),
+                ('name', models.CharField(max_length=150)),
             ],
             options={
-                'abstract': False,
+                'verbose_name_plural': 'Departments',
             },
         ),
     ]
