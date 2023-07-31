@@ -19,8 +19,8 @@ class OperatingHour(CommonModel):
     day_of_week = models.CharField(max_length=20, choices=DayKindChoices.choices)
     open_time = models.TimeField()
     close_time = models.TimeField()
-    lunch_start = models.TimeField()
-    lunch_end = models.TimeField()
+    lunch_start = models.TimeField(blank=True, null=True)
+    lunch_end = models.TimeField(blank=True, null=True)
     doctor = models.ForeignKey(
         "doctors.Doctor",
         on_delete=models.CASCADE,

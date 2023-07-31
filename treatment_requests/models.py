@@ -17,5 +17,5 @@ class TreatmentRequest(CommonModel):
         related_name="treatment_requests",
     )  # 의사
     desired_hours = models.DateTimeField()  # 진료 희망 날짜시간
-    expired_hours = models.DateTimeField()  # 진료요청 만료 날짜시간
+    expired_hours = models.DateTimeField(blank=True)  # 진료요청 만료 날짜시간
     acceptance = models.BooleanField(default=False)  # 진료 수락 여부
