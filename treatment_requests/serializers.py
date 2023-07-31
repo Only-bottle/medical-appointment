@@ -4,6 +4,13 @@ from .models import TreatmentRequest
 
 
 class TreatmentRequestSerializer(ModelSerializer):
+
+    class Meta:
+        model = TreatmentRequest
+        fields = "__all__"
+
+
+class TreatmentRequestResponseSerializer(ModelSerializer):
     patient = CharField(source='patient.name')
     doctor = CharField(source='doctor.name')
 

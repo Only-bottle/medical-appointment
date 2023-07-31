@@ -1,4 +1,4 @@
-from datetime import datetime, time, timedelta
+from datetime import datetime, time, timedelta, timezone
 
 from rest_framework.views import APIView
 from rest_framework.status import HTTP_200_OK
@@ -12,7 +12,7 @@ from rest_framework.exceptions import (
 )
 
 from .models import TreatmentRequest
-from .serializers import TreatmentRequestSerializer
+from .serializers import TreatmentRequestSerializer, TreatmentRequestResponseSerializer
 from doctors.models import Doctor
 
 
@@ -91,7 +91,7 @@ class TreatmentRequests(APIView):
             treatment_request = serializer.save(
                 expired_hours=expired_hours
             )
-            return Response(TreatmentRequestSerializer(treatment_request).data)
+            return Response(TreatmentRequestResponseSerializer(treatment_request).data)
         else:
             return Response(serializer.errors)
 
@@ -116,8 +116,18 @@ class TreatmentRequestAccept(APIView):
 
     def get(self, request, pk):
         treatment_request = TreatmentRequest.objects.get(pk=pk)
-        
-        pass
+        import ipdb; ipdb.set_trace()
+        current_time = datetime.now(timezone.utc)
+        print(current_time)
+        if treatment_request.expired_hours < current_time:
+            print("만료되었습니다.")
+        else:
+            treatment_request.acceptance = True
+
+        serializer = TreatmentRequestResponseSerializer(
+            treatment_request,
+        )
+        return Response(serializer.data)
 
     def delete(self, request, pk):
         pass
