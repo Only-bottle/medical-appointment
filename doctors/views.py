@@ -6,6 +6,9 @@ from rest_framework.exceptions import NotFound
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
+from treatment_requests.models import TreatmentRequest
+from treatment_requests.serializers import TreatmentRequestSerializer
+
 from .models import Doctor
 from .serializers import DoctorSerializer
 from operating_hours.models import OperatingHour
@@ -50,15 +53,23 @@ class Doctors(APIView):
         pass
 
 
-class DoctorDetail(APIView):
-    def get_object(self, pk):
-        pass
-
+class DoctorTreatmentRequests(APIView):
     def get(self, request, pk):
-        pass
+        treatment_requests = TreatmentRequest.objects.filter(
+            doctor=pk, acceptance=False
+        )
+        serializer = TreatmentRequestSerializer(
+            treatment_requests,
+            many=True,
+        )
+        return Response(serializer.data)
 
     def delete(self, request, pk):
         pass
 
     def put(self, request, pk):
         pass
+
+
+class DoctorTreatmentRequestsDetail(APIView):
+    pass
