@@ -24,4 +24,5 @@ urlpatterns = [
     path("api/v1/non_reimbursement_subjects/", include("non_reimbursement_subjects.urls")),
     path("api/v1/patients/", include("patients.urls")),
     path("api/v1/operating_hours/", include("operating_hours.urls")),
+    path("api/v1/treatment_requests/", include("treatment_requests.urls")),
 ]

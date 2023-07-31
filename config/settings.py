@@ -40,6 +40,7 @@ CUSTOM_APPS = [
     "departments.apps.DepartmentsConfig",
     "non_reimbursement_subjects.apps.NonReimbursementSubjectsConfig",
     "operating_hours.apps.OperatingHoursConfig",
+    "treatment_requests.apps.TreatmentRequestsConfig",
 ]
 
 SYSTEM_APPS = [
