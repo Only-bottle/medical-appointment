@@ -29,6 +29,6 @@ class OperatingHour(CommonModel):
 
     def __str__(self) -> str:
         return self.day_of_week
-    
+
     class Meta:
         verbose_name_plural = "OperatingHours"

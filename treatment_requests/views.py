@@ -33,4 +33,3 @@ class TreatmentRequestDetail(APIView):
 
     def put(self, request, pk):
         pass
-

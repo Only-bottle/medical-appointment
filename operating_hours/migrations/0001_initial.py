@@ -5,29 +5,47 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
-        ('doctors', '0001_initial'),
+        ("doctors", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='OperatingHour',
+            name="OperatingHour",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('day_of_week', models.CharField(choices=[('monday', 'Monday'), ('tuesday', 'Tuesday'), ('wednesday', 'Wednesday'), ('thursday', 'Thursday'), ('friday', 'Friday'), ('saturday', 'Saturday'), ('sunday', 'Sunday')], max_length=20)),
-                ('open_time', models.TimeField()),
-                ('close_time', models.TimeField()),
-                ('lunch_start', models.TimeField()),
-                ('lunch_end', models.TimeField()),
-                ('doctor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='operatinghours', to='doctors.doctor')),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
+                (
+                    "day_of_week",
+                    models.CharField(
+                        choices=[
+                            ("monday", "Monday"),
+                            ("tuesday", "Tuesday"),
+                            ("wednesday", "Wednesday"),
+                            ("thursday", "Thursday"),
+                            ("friday", "Friday"),
+                            ("saturday", "Saturday"),
+                            ("sunday", "Sunday"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("open_time", models.TimeField()),
+                ("close_time", models.TimeField()),
+                ("lunch_start", models.TimeField()),
+                ("lunch_end", models.TimeField()),
+                (
+                    "doctor",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, related_name="operatinghours", to="doctors.doctor"
+                    ),
+                ),
             ],
             options={
-                'verbose_name_plural': 'OperatingHours',
+                "verbose_name_plural": "OperatingHours",
             },
         ),
     ]

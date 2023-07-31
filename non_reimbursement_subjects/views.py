@@ -33,4 +33,3 @@ class NonReimbursementDepartmentDetail(APIView):
 
     def put(self, request, pk):
         pass
-

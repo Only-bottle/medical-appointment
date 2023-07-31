@@ -33,4 +33,3 @@ class DepartmentDetail(APIView):
 
     def put(self, request, pk):
         pass
-
