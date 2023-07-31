@@ -54,6 +54,9 @@ class Doctors(APIView):
 
 
 class DoctorTreatmentRequests(APIView):
+    def get_object(self, pk):
+        pass
+
     def get(self, request, pk):
         treatment_requests = TreatmentRequest.objects.filter(
             doctor=pk, acceptance=False
@@ -71,5 +74,12 @@ class DoctorTreatmentRequests(APIView):
         pass
 
 
-class DoctorTreatmentRequestsDetail(APIView):
-    pass
+class DoctorTreatmentRequestDetail(APIView):
+    def get_object(self, pk):
+        pass
+
+    def get(self, request, pk):
+        pass
+
+    def put(self, request, pk):
+        pass

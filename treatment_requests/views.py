@@ -100,7 +100,23 @@ class TreatmentRequestDetail(APIView):
     def get_object(self, pk):
         pass
 
-    def get(self, request, doctor_pk):
+    def get(self, request, pk):
+        pass
+
+    def delete(self, request, pk):
+        pass
+
+    def put(self, request, pk):
+        pass
+
+
+class TreatmentRequestAccept(APIView):
+    def get_object(self, pk):
+        pass
+
+    def get(self, request, pk):
+        treatment_request = TreatmentRequest.objects.get(pk=pk)
+        
         pass
 
     def delete(self, request, pk):
