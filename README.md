@@ -12,7 +12,7 @@ poetry shell
 python manage.py runserver
 ```
 
-# How to create data
+# API Description
 
 ## 1. 진료 요청
 ### 엔드포인트
@@ -40,10 +40,22 @@ POST api/v1/treatment_requests
 ### 엔드포인트
 
 ```shell
-GET /api/v1/doctors/1/treatment_requests
+GET /api/v1/doctors/{doctor_id}/treatment_requests
 ```
 
 ## 3. 진료 요청 수락
+### 엔드포인트
 
+```shell
+POST api/v1/treatment_requests/{treatment_request_id}/accept
+```
 
-## 4. 의사 검색
+## 4. 의사 검색 (미구현)
+### 엔드포인트
+
+```shell
+GET api/v1/doctors
+```
+
+# ERD
+![ERD](./imgs/ERD.png)
